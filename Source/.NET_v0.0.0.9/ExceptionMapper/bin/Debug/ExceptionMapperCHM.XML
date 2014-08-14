@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExceptionMapper</name>
+    </assembly>
+    <members>
+        <member name="T:AFourTech.ExceptionMapper.ExceptionInfo">
+             <summary>
+            Represents a class that provides general information about exception 
+             </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.ExceptionType">
+            <summary>
+            Gets the type of exception
+            </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.Message">
+            <summary>
+            Gets the exception message for exception
+            </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.StackTrace">
+            <summary>
+            Gets stack trace information about exception 
+            </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.AlternateText">
+            <summary>
+            Gets alternate text for the exception  
+            </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.ClassName">
+            <summary>
+            Gets base class name where exception occurred.
+            </summary>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.ExceptionInfo.StatusCode">
+            <summary>
+            Gets status code for the call indicating success or failure
+            </summary>
+        </member>
+        <member name="T:AFourTech.ExceptionMapper.Mapper">
+            <summary>
+            Mapper Class represents a class that returns description of exception in form of ExceptionInfo Object
+            </summary>
+        </member>
+        <member name="F:AFourTech.ExceptionMapper.Mapper.statusCodeDictionary">
+            <summary>
+            Dictionary for checking status of our errors with status code and messages.
+            </summary>
+        </member>
+        <member name="F:AFourTech.ExceptionMapper.Mapper.statusCodeDictionaryFinder">
+            <summary>
+            Status code for current error.
+            </summary>
+        </member>
+        <member name="F:AFourTech.ExceptionMapper.Mapper.exceptionTypeHashtable">
+            <summary>
+            This Hashtable is used for one time caching of xml file.
+            </summary>
+        </member>
+        <member name="F:AFourTech.ExceptionMapper.Mapper.messageHashtable">
+            <summary>
+            This Hashatble is used to store messages tag from xml file.
+            </summary>
+        </member>
+        <member name="M:AFourTech.ExceptionMapper.Mapper.initializeErrorCodeDict">
+            <summary>Method to initialize Error codes in dictionary</summary>
+        </member>
+        <member name="M:AFourTech.ExceptionMapper.Mapper.cacheXMLDocument">
+            <summary>Method to cache xml file to Hashtable</summary>
+        </member>
+        <member name="M:AFourTech.ExceptionMapper.Mapper.GetExceptionInfo(System.Exception,System.String)">
+            <summary>
+            <c>GetExceptionInfo</c> is a static method in the <c>Mapper</c> class. 
+            Below sample shows how to call the <see cref="M:AFourTech.ExceptionMapper.Mapper.GetExceptionInfo(System.Exception,System.String)"/> method.
+             <code>
+             class Program
+             {
+               static void Main(string[] args)
+               {
+                  var res = Mapper.GetExceptionInfo(new Exception("Arithmetic operation resulted in an overflow."));                  
+               }    
+             }   
+            </code>
+            <code>
+             class Program
+             {
+               static void Main(string[] args)
+               {     
+                  var res = Mapper.GetExceptionInfo(new Exception("Arithmetic operation resulted in an overflow."),"then");           
+               }    
+             }
+            </code>
+             <code>
+             class Program   
+             {
+               static void Main(string[] args)
+               {       
+                  var res = Mapper.GetExceptionInfo(new Exception("Arithmetic operation resulted in an overflow."),"given");           
+               }    
+             }
+            </code>
+            </summary>  
+            <param name="exception">Exception object to get Type .</param>
+            <param name="stepString">Step level condition like 'Given' or 'When'.</param>
+            <returns>ExceptionInfo</returns>
+        </member>
+        <member name="P:AFourTech.ExceptionMapper.Mapper.XmlFilePath">
+            <summary>
+             Specify the file path where ExceptionMapping.xml is located. 
+             </summary>  
+        </member>
+        <member name="T:AFourTech.ExceptionMapper.Mapper.StepConditionEnum">
+            <summary>
+            Enum to find StepCondition type 
+            </summary>
+        </member>
+    </members>
+</doc>
